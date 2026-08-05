@@ -1,0 +1,90 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.title }} — Портфолио Руслана{% endblock %}
+{% block description %}{{ project.description|truncatechars:160 }}{% endblock %}
+{% block og_title %}{{ project.title }}{% endblock %}
+{% block og_description %}{{ project.description|truncatechars:160 }}{% endblock %}
+{% block og_image %}{% if project.image %}{{ project.image.url }}{% else %}{% static 'portfolio/images/og-image.jpg' %}{% endif %}{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <div class="project-detail">
+                <h1 class="project-detail-title">{{ project.title }}</h1>
+                
+                <!-- Галерея -->
+                <div class="project-gallery">
+                    <div class="gallery-container">
+                        <div class="gallery-slide">
+                            {% if project.images.all %}
+                                {% for img in project.images.all %}
+                                    <div class="gallery-item {% if forloop.first %}active{% endif %}">
+                                        <img src="{{ img.image.url }}" alt="{{ project.title }} — фото {{ forloop.counter }}">
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <div class="gallery-placeholder">Изображения отсутствуют</div>
+                            {% endif %}
+                        </div>
+                        {% if project.images.all|length > 1 %}
+                            <button class="gallery-arrow prev" onclick="changeImage(-1)">&#10094;</button>
+                            <button class="gallery-arrow next" onclick="changeImage(1)">&#10095;</button>
+                        {% endif %}
+                    </div>
+                    {% if project.images.all|length > 1 %}
+                        <div class="gallery-dots">
+                            {% for img in project.images.all %}
+                                <span class="dot" data-index="{{ forloop.counter0 }}"></span>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div class="project-detail-description">
+                    <p>{{ project.description }}</p>
+                </div>
+                <div class="project-detail-meta">
+                    <p><strong>Дата создания:</strong> {{ project.created_at|date:"d.m.Y" }}</p>
+                </div>
+                <a href="{% url 'home' %}#projects" class="btn-primary">← Назад к проектам</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.gallery-item');
+        const dots = document.querySelectorAll('.dot');
+
+        function showImage(index) {
+            if (items.length === 0) return;
+            items.forEach(item => item.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            if (index < 0) index = items.length - 1;
+            if (index >= items.length) index = 0;
+            currentIndex = index;
+            items[currentIndex].classList.add('active');
+            if (dots.length > 0) dots[currentIndex].classList.add('active');
+        }
+
+        function changeImage(direction) {
+            showImage(currentIndex + direction);
+        }
+
+        function goToImage(index) {
+            showImage(index);
+        }
+
+        // Инициализация
+        if (items.length > 0) showImage(0);
+
+        // Обработчики для точек (вместо onclick)
+        document.querySelectorAll('.dot').forEach(dot => {
+            dot.addEventListener('click', function() {
+                const index = parseInt(this.dataset.index);
+                goToImage(index);
+            });
+        });
+    </script>
+{% endblock %}

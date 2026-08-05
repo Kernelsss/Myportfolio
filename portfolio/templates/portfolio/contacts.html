@@ -1,0 +1,67 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}Контакты — Связаться со мной{% endblock %}
+{% block description %}Свяжитесь со мной через форму обратной связи или в соцсетях.{% endblock %}
+{% block og_title %}Контакты — Руслан{% endblock %}
+{% block og_description %}Форма обратной связи и контакты.{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <h1 class="section-title">Связаться со мной</h1>
+            <div class="contacts-grid">
+                <div class="contacts-info">
+                    <p class="contacts-text">
+                        Если у вас есть вопросы или предложения, заполните форму справа — я отвечу в ближайшее время.
+                    </p>
+                    <div class="contacts-social">
+                        <h3>Социальные сети</h3>
+                        <div class="social-links">
+                            <a href="#" target="_blank" class="social-icon">GitHub</a>
+                            <a href="#" target="_blank" class="social-icon">Telegram</a>
+                            <a href="mailto:your-email@example.com" class="social-icon">Email</a>
+                        </div>
+                    </div>
+                    <div class="contacts-extra">
+                        <p><strong>Или просто напишите:</strong><br>your-email@example.com</p>
+                    </div>
+                </div>
+                <div class="contacts-form">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}">Имя</label>
+                            {{ form.name }}
+                            {{ form.name.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}">Email</label>
+                            {{ form.email }}
+                            {{ form.email.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.subject.id_for_label }}">Тема</label>
+                            {{ form.subject }}
+                            {{ form.subject.errors }}
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.message.id_for_label }}">Сообщение</label>
+                            {{ form.message }}
+                            {{ form.message.errors }}
+                        </div>
+                        <button type="submit" class="btn-primary">Отправить</button>
+                    </form>
+                    {% if messages %}
+                        <div class="messages">
+                            {% for message in messages %}
+                                <div class="alert alert-success">{{ message }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
+
+{% block title %}My portfolio{% endblock %}
+{% block description %}Минималистичное портфолио разработчика на Python и Django. Проекты, навыки, контакты.{% endblock %}
+{% block og_title %}Портфолио разработчика Руслана{% endblock %}
+{% block og_description %}Минималистичные сайты с душой.{% endblock %}
+
+{% block content %}
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Developer</span>
+                <span class="badge">Product-manager</span>
+                <span class="badge">Sales-manager</span>
+                <h1 class="animate-on-load animate-delay-1">Привет, я Руслан.</h1>
+                <p class="subtitle animate-on-load animate-delay-2">Создаю минималистичные сайты<br>с душой и вниманием к деталям.</p>
+                <a href="#projects" class="btn-primary animate-on-load animate-delay-3">Смотреть проекты →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Обо мне -->
+    <section id="about" class="section scroll-animate">
+        <div class="container">
+            <h2 class="section-title">Обо мне</h2>
+            <div class="about-grid">
+                <div class="about-photo">
+                    <img src="{% static 'portfolio/images/avatar.jpg' %}" alt="Моё фото" class="avatar">
+                </div>
+                <div class="about-content">
+                    <p class="about-text">
+                        Привет! Меня зовут Руслан. Я начинающий разработчик на Python и Django. 
+                        Мне нравится создавать чистые, минималистичные веб-приложения.
+                    </p>
+                    <p class="about-text">
+                        В свободное время изучаю новые технологии и улучшаю навыки в Figma.
+                    </p>
+                    <div class="about-links">
+                        <a href="#" class="social-link">GitHub</a>
+                        <a href="#" class="social-link">Telegram</a>
+                        <a href="#" class="social-link">Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Навыки -->
+    <section id="skills" class="section section-gray scroll-animate">
+        <div class="container">
+            <h2 class="section-title">Навыки</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Django</div>
+                <div class="skill-item">HTML & CSS</div>
+                <div class="skill-item">Figma</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Проекты -->
+    <section id="projects" class="section scroll-animate">
+        <div class="container">
+            <h2 class="section-title">Проекты</h2>
+            <div class="projects-grid">
+                {% for project in projects %}
+                    {% if project.is_active %}
+                        <a href="{% url 'project_detail' project.id %}" class="project-link">
+                            <div class="project-card animate-on-load animate-delay-{{ forloop.counter|add:1 }}">
+                                <div class="project-cover">
+                                    {% if project.image %}
+                                        <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-image">
+                                    {% else %}
+                                        <!-- Здесь могут быть SVG-иконки, но для краткости я их опустил, 
+                                             ты можешь вставить свой код иконок обратно -->
+                                        <span class="cover-title">{{ project.cover_title }}</span>
+                                    {% endif %}
+                                </div>
+                                <h3>{{ project.title }}</h3>
+                                <p>{{ project.description }}</p>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

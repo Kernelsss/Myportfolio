@@ -9,5 +9,4 @@ urlpatterns = [
     path('', views.home_page, name='home'),
     path('project/<int:pk>/', views.project_detail, name='project_detail'),  # новая строка
     path('contacts/', views.contacts, name='contacts'), # forms contacts
-    path('create-admin/', views.create_admin, name='create_admin'), 
 ]

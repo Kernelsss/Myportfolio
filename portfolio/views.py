@@ -4,6 +4,19 @@ from .forms import ContactForm
 from .models import Project
 from django.core.mail import send_mail
 from django.conf import settings
+from django.http import HttpResponse
+from django.contrib.auth import get_user_model
+
+def create_admin(request):
+    User = get_user_model()
+    if User.objects.filter(username='admin').exists():
+        return HttpResponse("Суперпользователь уже существует. Войдите с логином admin и паролем admin123.")
+    User.objects.create_superuser(
+        username='admin',
+        email='admin@example.com',
+        password='admin123'
+    )
+    return HttpResponse("Суперпользователь создан! Войдите с логином admin и паролем admin123.")
 
 def home_page(request):
     # Получаем все активные проекты, отсортированные по дате создания

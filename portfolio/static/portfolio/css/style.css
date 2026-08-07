@@ -196,6 +196,10 @@ body {
     margin-bottom: 40px;
 }
 
+/* ========================================
+   КНОПКИ (дополнительные стили)
+   ======================================== */
+
 .btn-primary {
     display: inline-block;
     background: var(--btn-bg);
@@ -226,6 +230,7 @@ body {
     font-size: 16px;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn-secondary:hover {

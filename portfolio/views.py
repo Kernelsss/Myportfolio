@@ -4,6 +4,32 @@ from .forms import ContactForm
 from .models import Project
 from django.core.mail import send_mail
 from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from django.conf import settings
+from weasyprint import HTML
+import os
+
+def download_resume(request):
+    # Данные для шаблона (можно передавать из модели)
+    context = {
+        'name': 'Руслан',
+        'title': 'Python/Django Developer',
+        'skills': ['Python', 'Django', 'HTML & CSS', 'Figma'],
+        'experience': [
+            {'company': 'Компания А', 'position': 'Разработчик', 'years': '2024–2026'},
+        ],
+        'education': 'СамГУ, факультет информатики',
+    }
+    template = get_template('portfolio/resume_template.html')
+    html_content = template.render(context)
+
+    # Генерируем PDF
+    pdf_file = HTML(string=html_content).write_pdf()
+
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="Resume_Ruslan.pdf"'
+    return response
 
 def home_page(request):
     # Получаем все активные проекты, отсортированные по дате создания
@@ -50,3 +76,6 @@ def contacts(request):
         'form': form,
     }
     return render(request, 'portfolio/contacts.html', context)
+
+def resume_page(request):
+    return render(request, 'portfolio/resume_page.html')

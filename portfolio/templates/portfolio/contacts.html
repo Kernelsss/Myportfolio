@@ -51,6 +51,15 @@
                             {{ form.message }}
                             {{ form.message.errors }}
                         </div>
+
+                        <!-- Капча (если включена) -->
+                        {% if form.captcha %}
+                            <div class="form-group">
+                                {{ form.captcha }}
+                                {{ form.captcha.errors }}
+                            </div>
+                        {% endif %}
+                        
                         <button type="submit" class="btn-primary">Отправить</button>
                     </form>
                     {% if messages %}

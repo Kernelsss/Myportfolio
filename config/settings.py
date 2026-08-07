@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',  # добавляем наше приложение portfolio
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -168,3 +169,10 @@ CONTACT_EMAIL = 'russsya94@yandex.ru'     # сюда письма будут п�
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Google reCAPTCHA
+RECAPTCHA_PUBLIC_KEY = os.environ.get('RECAPTCHA_PUBLIC_KEY', '')
+RECAPTCHA_PRIVATE_KEY = os.environ.get('RECAPTCHA_PRIVATE_KEY', '')
+
+# Опционально: отключаем капчу локально для удобства
+USE_CAPTCHA = not DEBUG   # если DEBUG=True, капча не будет показываться

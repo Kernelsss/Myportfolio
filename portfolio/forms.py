@@ -1,5 +1,12 @@
 from django import forms
 from .models import ContactMessage
+from django.conf import settings
+from captcha.fields import ReCaptchaField
+from captcha.widgets import ReCaptchaV2Checkbox
+
+class ContactForm(forms.ModelForm):
+    if settings.USE_CAPTCHA:
+        captcha = ReCaptchaField(widget=ReCaptchaV2Checkbox)
 
 class ContactForm(forms.ModelForm):
     class Meta:

@@ -31,6 +31,10 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
 </head>
 <body>
+    <!-- Спиннер загрузки -->
+        <div id="loader-wrapper">
+            <div class="loader"></div>
+        </div>
 
     <!-- Хедер -->
     <header class="header">
@@ -109,5 +113,26 @@
             }
         });
     </script>
+
+    <script>
+        // Скрыть спиннер после полной загрузки страницы
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader-wrapper');
+            if (loader) {
+                loader.classList.add('hidden');
+            }
+        });
+
+        // Показывать спиннер при клике на любую ссылку (кроме якорных и внешних)
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('a');
+            if (target && target.href && !target.href.startsWith('#') && target.hostname === window.location.hostname) {
+                const loader = document.getElementById('loader-wrapper');
+                if (loader) {
+                    loader.classList.remove('hidden');
+                }
+            }
+        });
+</script>
 </body>
 </html>

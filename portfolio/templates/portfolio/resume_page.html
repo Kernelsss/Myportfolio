@@ -2,19 +2,228 @@
 {% load static %}
 
 {% block title %}Резюме — Руслан{% endblock %}
+{% block description %}Резюме менеджера по продажам и продукт-менеджера. Опыт в FinTech, EdTech, банковском секторе.{% endblock %}
 
 {% block content %}
 <section class="section">
     <div class="container">
         <h1 class="section-title">Моё резюме</h1>
-        <div class="resume-content" style="max-width: 800px; margin: 0 auto;">
-            <p style="font-size: 18px; line-height: 1.8;">
-                Здесь можно разместить текст резюме (опыт, навыки, образование) прямо на странице.
-            </p>
-            <div style="margin-top: 30px; text-align: center;">
-                <a href="{% static 'portfolio/files/Resume_Ruslan.pdf' %}?v=1" download class="btn-primary">Скачать PDF 📄</a>
+        
+        <div class="resume-content" style="max-width: 900px; margin: 0 auto;">
+
+            <!-- Краткое описание -->
+            <div class="resume-section">
+                <h2>Обо мне</h2>
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-secondary);">
+                    Менеджер по продажам B2B/B2C с 8-летним опытом в FinTech, EdTech и банковском секторе. 
+                    Систематически перевыполняю план (110%+), веду сделки с ЛПР уровня C-level и выстраиваю 
+                    стратегии продаж для клиентов с оборотом >1 млрд ₽. Обладаю продуктовым мышлением: применяю 
+                    CustDev, Unit-экономику и SQL не только для анализа рынка, но и для улучшения продукта на 
+                    основе обратной связи клиентов — это снижает отток и увеличивает LTV. 
+                    <br><br>
+                    Сейчас завершаю переквалификацию на Product Manager в Яндекс.Практикуме с реальным проектом 
+                    вывода MedTech-сервиса на рынок РФ (MVP, прототип, положительные отзывы ЦА). Ищу команду, 
+                    где ценится сочетание sales-экспертизы, аналитического подхода и искреннего интереса к тому, 
+                    как продукт решает проблемы людей. Открыт к удалённой работе и готов к диалогу.
+                </p>
             </div>
+
+            <!-- Опыт работы -->
+            <div class="resume-section">
+                <h2>Опыт работы</h2>
+
+                <div class="resume-item">
+                    <h3>Менеджер по продажам / Руководитель отдела продаж</h3>
+                    <p><em>Центр кредитной поддержки | Июнь 2024 – Декабрь 2025</em></p>
+                    <p><strong>Банковские продукты B2B / Финансовые услуги</strong></p>
+                    <ul>
+                        <li>Перевыполнял личный план продаж в среднем на 110% ежемесячно; как РОП обеспечивал выполнение региональных показателей командой.</li>
+                        <li>Работал с клиентами с годовым оборотом >1 млрд ₽: вел длинные циклы сделок, проводил переговоры с первыми лицами компаний (C-level).</li>
+                    </ul>
+                    <p><strong>Достижения:</strong></p>
+                    <ul>
+                        <li>Рекорд выручки (октябрь 2024)</li>
+                        <li>Рекордное закрытие квартала (осень 2024)</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item">
+                    <h3>Менеджер по продажам IT-услуг</h3>
+                    <p><em>Академия TOP | Июнь 2022 – Декабрь 2022</em></p>
+                    <p><strong>EdTech, продажа IT-курсов</strong></p>
+                    <ul>
+                        <li>Продавал образовательные продукты в сегменте B2B/B2C, работая с разными сегментами ЦА.</li>
+                        <li>Адаптировал продуктовую ценность под потребности клиентов, используя элементы CustDev-подхода.</li>
+                    </ul>
+                    <p><strong>Достижения:</strong></p>
+                    <ul>
+                        <li>Лучшая конверсия в сделку (август 2022)</li>
+                        <li>Лучший чек офиса (июль 2022)</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item">
+                    <h3>Менеджер по продажам</h3>
+                    <p><em>Единый центр защиты | Январь 2023 – Октябрь 2023</em></p>
+                    <p><strong>Продажа юридических услуг / первичная консультация клиентов по банкротству</strong></p>
+                    <ul>
+                        <li>Продавал юридические услуги по банкротству для B2C сегмента.</li>
+                    </ul>
+                    <p><strong>Достижения:</strong></p>
+                    <ul>
+                        <li>Рекорд офиса по чистой выручке (август 2023)</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item">
+                    <h3>Менеджер по продажам B2C / Руководитель отдела продаж</h3>
+                    <p><em>Freedom Finance / Teletrade | Январь 2018 – Февраль 2022</em></p>
+                    <p><strong>Финансовые услуги, инвестиции</strong></p>
+                    <ul>
+                        <li>Консультировал клиентов по сложным финансовым продуктам, обеспечивая высокое качество сервиса и повторные продажи.</li>
+                        <li>Разработал и внедрил сегментированные скрипты продаж для разных категорий клиентов, что увеличило конверсию из лида в сделку на 10%.</li>
+                        <li>Выстроил систему допродаж (upsell/cross-sell), увеличив средний чек на 50%.</li>
+                        <li>Построил воронку продаж на основе реальных данных компании, выявил ключевые точки оттока и внедрил меры по удержанию, увеличив жизненный цикл клиента (LTV).</li>
+                        <li>Обучал и менторил новых сотрудников, применяя методики эффективных коммуникаций и лидерства.</li>
+                    </ul>
+                    <p><strong>Достижения:</strong></p>
+                    <ul>
+                        <li>Входил в топ-7 менеджеров по продажам 2019 года по всей России</li>
+                        <li>Рекорд офиса (2019 год)</li>
+                        <li>Рекордная сумма сделки в регионе (2019 год)</li>
+                        <li>Входил в топ-10 менеджеров по продажам 2018 года по всей России</li>
+                        <li>Лучший региональный менеджер (август 2018)</li>
+                        <li>Лучший региональный менеджер (июнь 2018)</li>
+                        <li>Лучший старт среди новичков (2018)</li>
+                    </ul>
+                </div>
+
+                <div class="resume-item">
+                    <h3>Product Manager (Trainee)</h3>
+                    <p><em>Яндекс.Практикум | Декабрь 2025 – Декабрь 2026</em></p>
+                    <p><strong>Проект: Сервис доставки рецептурных препаратов на рынок РФ</strong></p>
+                    <ul>
+                        <li>Провел серию глубинных интервью и вторичных исследований, подтвердил гипотезы спроса и получил положительные отзывы от представителей ЦА.</li>
+                        <li>Разработал Persona-шаблоны, CJM и прототип MVP; составил roadmap запуска продукта.</li>
+                        <li>Рассчитал Unit-экономику и модель рентабельности выхода на российский рынок, определил ключевые метрики успеха.</li>
+                        <li>Продемонстрировал способность связывать бизнес-метрики с потребностями пользователей — навык, напрямую применимый в product-led продажах.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Образование и сертификация -->
+            <div class="resume-section">
+                <h2>Образование и сертификация</h2>
+                <div class="resume-item">
+                    <h3>Product Manager</h3>
+                    <p><em>Яндекс.Практикум | Диплом гос. образца о переквалификации</em></p>
+                    <p>Окончание: декабрь 2025</p>
+                </div>
+                <div class="resume-item">
+                    <h3>Бизнес-информатика</h3>
+                    <p><em>СКИ РУК | 2012–2016</em></p>
+                    <p>Бакалавриат</p>
+                </div>
+                <div class="resume-item">
+                    <h3>Дополнительное образование</h3>
+                    <ul>
+                        <li>«Харизма Лидера», Р. Гандапас</li>
+                        <li>«Камасутра для Оратора», Р. Гандапас</li>
+                        <li>Школа продаж Максима Батырева</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Навыки -->
+            <div class="resume-section">
+                <h2>Ключевые навыки</h2>
+                <div class="skills-grid-resume" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">B2B Sales</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Длинные циклы сделок</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">C-level переговоры</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Upsell/Cross-sell</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Построение воронок</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Скрипты продаж</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Наставничество</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">CustDev</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Customer Journey Map</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Unit-экономика</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">MVP/MVL</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Roadmap</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Прототипирование</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Анализ метрик</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Гипотезы</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">amoCRM</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Bitrix24</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Jira</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Trello</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">SQL</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Excel (Advanced)</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Кросс-функциональное взаимодействие</span>
+                    <span class="skill-tag" style="background: var(--bg-secondary); padding: 6px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 14px;">Публичные выступления</span>
+                </div>
+            </div>
+
+            <!-- Кнопка скачивания -->
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="{% static 'portfolio/files/Resume_Ruslan.pdf' %}?v=1" download class="btn-primary">
+                    Скачать PDF 📄
+                </a>
+            </div>
+
         </div>
     </div>
 </section>
+
+<!-- Дополнительные стили для страницы -->
+<style>
+    .resume-section {
+        margin-bottom: 40px;
+    }
+    .resume-section h2 {
+        font-size: 24px;
+        font-weight: 400;
+        border-bottom: 2px solid var(--text-primary);
+        padding-bottom: 8px;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+    }
+    .resume-item {
+        margin-bottom: 24px;
+    }
+    .resume-item h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 4px;
+        color: var(--text-primary);
+    }
+    .resume-item p {
+        margin: 4px 0;
+        color: var(--text-secondary);
+    }
+    .resume-item ul {
+        padding-left: 20px;
+        color: var(--text-secondary);
+        line-height: 1.7;
+        margin: 6px 0;
+    }
+    .resume-item ul li {
+        margin-bottom: 4px;
+    }
+    .skill-tag {
+        display: inline-block;
+        background: var(--bg-secondary);
+        padding: 6px 16px;
+        border-radius: 20px;
+        border: 1px solid var(--border-color);
+        font-size: 14px;
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+    }
+    .skill-tag:hover {
+        background: var(--text-primary);
+        color: var(--bg-primary);
+        border-color: var(--text-primary);
+    }
+</style>
 {% endblock %}

@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',  # добавляем наше приложение portfolio
-    'captcha',
+    'django_recaptcha',
 ]
 
 MIDDLEWARE = [
